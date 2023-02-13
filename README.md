@@ -57,3 +57,10 @@ Docker should be installed
 ## Download image from Docker Hub
 
 The command to pull the image: `docker pull viktorbeniukh/cinema_api-app:latest`.
+
+
+## Check project functionality
+
+User credentials for test the functionality of this project:
+- email address: `migrated@user.com`;
+- password: `userpassword`.
