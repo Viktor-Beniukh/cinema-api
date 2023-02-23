@@ -63,7 +63,7 @@ class ActorViewSet(
     @extend_schema(
         parameters=[
             OpenApiParameter(
-                "name",
+                "last_name",
                 type=OpenApiTypes.STR,
                 description="Filter by actor last name (ex. ?last_name=Clooney)",
             ),
