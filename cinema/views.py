@@ -38,6 +38,17 @@ class GenreViewSet(
     serializer_class = GenreSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
+    def get_queryset(self):
+        """Retrieve the genres with filter"""
+        name = self.request.query_params.get("name")
+
+        queryset = self.queryset
+
+        if name:
+            queryset = queryset.filter(name__icontains=name)
+
+        return queryset
+
     @extend_schema(
         parameters=[
             OpenApiParameter(
@@ -60,6 +71,17 @@ class ActorViewSet(
     serializer_class = ActorSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
+    def get_queryset(self):
+        """Retrieve the actors with filter"""
+        last_name = self.request.query_params.get("last_name")
+
+        queryset = self.queryset
+
+        if last_name:
+            queryset = queryset.filter(last_name__icontains=last_name)
+
+        return queryset
+
     @extend_schema(
         parameters=[
             OpenApiParameter(
@@ -81,6 +103,17 @@ class CinemaHallViewSet(
     queryset = CinemaHall.objects.all()
     serializer_class = CinemaHallSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+
+    def get_queryset(self):
+        """Retrieve the cinema halls with filter"""
+        name = self.request.query_params.get("name")
+
+        queryset = self.queryset
+
+        if name:
+            queryset = queryset.filter(name__icontains=name)
+
+        return queryset
 
     @extend_schema(
         parameters=[
