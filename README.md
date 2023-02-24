@@ -12,11 +12,6 @@ cd cinema_api
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-set POSTGRES_HOST=<your db hostname>
-set POSTGRES_NAME=<your db name>
-set POSTGRES_USER=<your db username>
-set POSTGRES_PASSWORD=<your db user password>
-set SECRET_KEY=<your secret key>
 python manage.py migrate
 python manage.py runserver   
 ```
@@ -72,6 +67,8 @@ Docker should be installed
 - [POST] /api/cinema/movies/ - creates a movie;
 - [POST] /api/cinema/cinema_halls/ - creates a cinema hall;
 - [POST] /api/cinema/orders/ - creates orders;
+- [POST] /api/user/register/ - creates new users;
+- [POST] /api/user/token/ - creates token pair for user;
 
 ### Checking the endpoints functionality
 - You can see detailed APIs at swagger page: `http://127.0.0.1:8000/api/doc/swagger/`.
@@ -90,6 +87,15 @@ The command to pull the image: `docker pull viktorbeniukh/cinema_api-app:latest`
 
 ## Check project functionality
 
-User credentials for test the functionality of this project:
+Superuser credentials for test the functionality of this project:
+- email address: `migrated@user.com`;
+- password: `userpassword`.
+
+
+## Create token pair for user
+
+Token page: `http://127.0.0.1:8000/api/user/token/`
+
+Enter:
 - email address: `migrated@user.com`;
 - password: `userpassword`.
