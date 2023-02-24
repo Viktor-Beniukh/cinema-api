@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.db import migrations
-from django.contrib.auth.management import create_permissions
 
 
 def add_user(apps, schema_editor):
