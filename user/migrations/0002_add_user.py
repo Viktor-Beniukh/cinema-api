@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.db import migrations
+from django.contrib.auth.management import create_permissions
 
 
 def add_user(apps, schema_editor):
@@ -10,6 +11,8 @@ def add_user(apps, schema_editor):
         password=make_password("userpassword"),
         first_name="Migrated",
         last_name="Improved User",
+        is_superuser=True,
+        is_staff=True,
     )
 
 
@@ -22,7 +25,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("user", "0001_initial"),
-        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
